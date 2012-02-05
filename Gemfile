@@ -41,7 +41,7 @@ gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Set up testing stuff
-group :test do
+group :test, :development do
 	gem 'rspec-rails', '~> 2.6'
 
 	gem 'cucumber-rails'
