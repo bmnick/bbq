@@ -25,6 +25,8 @@ gem 'jquery-rails'
 # Pull in bootstrap as an asset
 gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
 
+gem 'haml-rails'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
