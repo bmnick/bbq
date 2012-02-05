@@ -1,17 +1,32 @@
 class QuotesController < ApplicationController
-	before_filter :find_quote
+	before_filter :find_quote, except: [:index]
+	before_filter :find_quotes, only: [:index]
 
 	respond_to :html, :json
+
+	def index
+	end
 
 	def new
 	end
 
 	def create
-		@quote.save
-		respond_with @quote
+		respond_to do |format|
+			if @quote.save
+				format.html { redirect_to quotes_path, notice: 'Quote submitted' }
+				format.json { render json: @quote, status: created, location: @quote }
+			else
+				format.html { render action: new }
+				format.json { render json: @quote.errors, status: :unprocessable_entity }
+			end
+		end
 	end
 
 	private
+	def find_quotes
+		@quotes = Quote.all
+	end
+
 	def find_quote
 		@quote = Quote.find(params[:id]) if params[:id]
 		@quote ||= Quote.new(params[:quote]) if params[:quote]
