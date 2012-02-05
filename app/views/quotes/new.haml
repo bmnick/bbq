@@ -1,1 +1,10 @@
-%h1 Create a Quote
+.page-header
+	%h2 Create a Quote
+= simple_form_for @quote  do |f|
+	= f.error_notification
+	
+	= f.input :text, id: 'quote'
+	= f.input :context
+
+	.form-actions
+		= f.button :submit, 'Submit Quote', class: 'btn-primary'
