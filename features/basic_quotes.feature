@@ -6,8 +6,8 @@ Feature: Quote CRUD management
 	Scenario: Create a quote
 		Given I am on the create quote page
 		When I fill in the following:
-			| quote 	| Ben: I want OMG WTF and BBQ running! |
-			| context 	| SSE server |
+			| Text		| Ben: I want OMG WTF and BBQ running! |
+			| Context 	| SSE server |
 		And I press "Submit Quote"
 		Then I should see "Quote submitted"
 		And I should be on the recent quotes page
