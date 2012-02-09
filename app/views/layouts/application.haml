@@ -9,7 +9,13 @@
 		.navbar
 			.navbar-inner
 				.container
-					%a.brand(href="/")Big Bad Quotes
+					= link_to "Big Bad Quotes", '/', class: "brand"
+					.nav-collapse
+						%ul.nav
+							%li
+								= link_to "Recent", quotes_path
+							%li
+								= link_to "Submit Quote", new_quote_path
 		.container
 			- if flash[:error]
 				.alert.alert-error
