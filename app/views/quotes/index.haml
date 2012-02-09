@@ -4,6 +4,9 @@
 	- @quotes.each do |q|
 		%li
 			.well
+				.header
+					%h3 
+						= "Quote ##{q.id}"
 				.text
 					= q.text
 				.context
