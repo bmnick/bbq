@@ -25,7 +25,6 @@ Feature: Quote CRUD management
 		And I should see "Cody: I like 5 guys in my mouth!"
 		And I should see "none!"
 	
-	@wip
 	Scenario: See a single quote
 		Given the following quote exists:
 			| Text		| Ben: I want OMG WTF and BBQ running! |
@@ -36,4 +35,3 @@ Feature: Quote CRUD management
 		Then I should be on the quote page for quote 42
 		And I should see "Ben: I want OMG WTF and BBQ running!"
 		And I should see "SSE Server"
-		And show me the page

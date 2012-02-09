@@ -17,6 +17,9 @@ module NavigationHelpers
     when /^the recent quotes page$/
       quotes_path
 
+    when /^the quote page for quote ([0-9]+)$/
+      quote_path($1)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

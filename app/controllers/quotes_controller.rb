@@ -10,6 +10,9 @@ class QuotesController < ApplicationController
 	def new
 	end
 
+	def show
+	end
+
 	def create
 		respond_to do |format|
 			if @quote.save

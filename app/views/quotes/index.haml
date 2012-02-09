@@ -1,13 +1,11 @@
 %h2 All Quotes
 
-%ul
-	- @quotes.each do |q|
-		%li
-			.well
-				.header
-					%h3 
-						= "Quote ##{q.id}"
-				.text
-					= q.text
-				.context
-					= q.context
+- @quotes.each do |q|
+	.well
+		.header
+			%h3 
+				= link_to "Quote ##{q.id}", q
+		.text
+			= q.text
+		.context
+			= q.context
