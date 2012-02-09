@@ -1,0 +1,10 @@
+%h2 All Quotes
+
+%ul
+	- @quotes.each do |q|
+		%li
+			.well
+				.text
+					= q.text
+				.context
+					= q.context
