@@ -1,0 +1,4 @@
+.page-header
+	%h2 
+		= "Edit Quote ##{@quote.id}"
+= render partial: 'form', locals: { quote: @quote, action: 'Save Quote' }

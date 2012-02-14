@@ -41,9 +41,23 @@ Feature: Quote CRUD management
 		Given the following quote exists:
 			| Text		| Ben: I want OMG WTF and BBQ running! |
 			| Context	| SSE Server |
-			| Number	| 42 |
+			| Number	| 47 |
 		When I am on the recent quotes page
-		And I follow the link for "Quote #42"
+		And I follow the link for "Quote #47"
 		And I follow the link for "Edit"
-		Then I should be on the edit page for quote 42
+		Then I should be on the edit page for quote 47
 
+	Scenario: Edit a quote
+		Given the following quote exists:
+			| Text		| Ben: I want OMG WTF and BBQ running! |
+			| Context	| SSE Server |
+			| Number	| 72 |
+		When I am on the recent quotes page
+		And I follow the link for "Quote #72"
+		And I follow the link for "Edit"
+		And I fill in the following:
+			| Text		| Danjo: I am HERPing and DERPing |
+		And I press "Save Quote"
+		Then I should be on the quote page for quote 72
+		And I should see "Danjo: I am HERPing and DERPing"
+		And I should see "SSE Server"

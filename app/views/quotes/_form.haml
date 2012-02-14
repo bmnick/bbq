@@ -1,0 +1,8 @@
+= simple_form_for quote  do |f|
+	= f.error_notification
+	
+	= f.input :text, as: :text, id: 'quote', input_html: { class: 'span12', rows: 5 }
+	= f.input :context, input_html: { class: 'span12' }
+
+	.form-actions
+		= f.button :submit, action, class: 'btn-primary'

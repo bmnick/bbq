@@ -28,6 +28,18 @@ class QuotesController < ApplicationController
 		end
 	end
 
+	def update
+		respond_to do |format|
+			if @quote.update_attributes params[:quote]
+				format.html { redirect_to quote_path(@quote), notice: 'Quote updated' }
+				format.json { head :ok }
+			else
+				format.html { render action: edit }
+				format.json { render json: @quote.errors, status: :unprocessable_entity }
+			end
+		end
+	end
+
 	private
 	def find_quotes
 		@quotes = Quote.all
