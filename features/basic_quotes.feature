@@ -61,3 +61,13 @@ Feature: Quote CRUD management
 		Then I should be on the quote page for quote 72
 		And I should see "Danjo: I am HERPing and DERPing"
 		And I should see "SSE Server"
+
+	Scenario: Delete a quote
+		Given the following quote exists:
+			| Text		| Kaity: Hi! |
+			| Context	| none |
+			| Number	| 37 |
+		When I am on the quote page for quote 37
+		And I follow the link for "Delete quote"
+		Then I should be on the recent quotes page
+		And I should not see "Kaity: Hi!"

@@ -1,3 +1,4 @@
 = render partial: 'quote', object: @quote
 
 = link_to "Edit this quote", edit_quote_path(@quote)
+= link_to 'Delete quote', @quote, method: :delete

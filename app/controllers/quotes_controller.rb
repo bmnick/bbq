@@ -16,6 +16,15 @@ class QuotesController < ApplicationController
 	def show
 	end
 
+	def destroy
+		@quote.destroy
+
+		respond_to do |format|
+			format.html { redirect_to quotes_path, notice: 'Quote deleted' }
+			format.json { head :ok }
+		end
+	end
+
 	def create
 		respond_to do |format|
 			if @quote.save
