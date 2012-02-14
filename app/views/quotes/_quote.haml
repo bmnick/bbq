@@ -1,0 +1,10 @@
+.page-header
+	%h2 
+		= link_to "Quote ##{quote.id}", quote
+.quote-text
+	- quote.text.each_line do |line|
+		= line
+		%br
+- if quote.context.length > 0
+	.quote-context
+		= quote.context

@@ -1,11 +1,3 @@
 %h2 All Quotes
 
-- @quotes.each do |q|
-	.well
-		.header
-			%h3 
-				= link_to "Quote ##{q.id}", q
-		.text
-			= q.text
-		.context
-			= q.context
+= render :partial => "quote", :collection => @quotes
