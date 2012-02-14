@@ -36,3 +36,14 @@ Feature: Quote CRUD management
 		Then I should be on the quote page for quote 42
 		And I should see "Ben: I want OMG WTF and BBQ running!"
 		And I should see "SSE Server"
+
+	Scenario: Get to the edit page
+		Given the following quote exists:
+			| Text		| Ben: I want OMG WTF and BBQ running! |
+			| Context	| SSE Server |
+			| Number	| 42 |
+		When I am on the recent quotes page
+		And I follow the link for "Quote #42"
+		And I follow the link for "Edit"
+		Then I should be on the edit page for quote 42
+
