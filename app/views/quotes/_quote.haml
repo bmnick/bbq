@@ -1,10 +1,18 @@
 .page-header
 	%h2 
 		= link_to "Quote ##{quote.id}", quote
-.quote-text
-	- quote.text.each_line do |line|
-		= line
-		%br
-- if quote.context.length > 0
-	.quote-context
-		= quote.context
+.score-container
+	.upvote
+		= link_to "upvote", upvote_quote_path
+	.score
+		= quote.score
+	.downvote
+		= link_to "downvote", downvote_quote_path
+.quote-container
+	.quote-text
+		- quote.text.each_line do |line|
+			= line
+			%br
+	- if quote.context.length > 0
+		.quote-context
+			= quote.context
