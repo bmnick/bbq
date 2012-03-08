@@ -23,3 +23,14 @@ Feature: Quote Score Management
 		And I follow the link for "upvote"
 		Then I should be on the quote page for quote 89
 		And I should see a score of "42"
+
+	@wip
+	Scenario: Downvote should decrease the score
+		Given the following quote exists:
+			| Text		| Ben: Apple! |
+			| Score 	| 43 |
+			| Number 	| 90 |
+		When I am on the quote page for quote 90
+		And I follow the link for "downvote"
+		Then I should be on the quote page for quote 89
+		And I should see a score of "42"
