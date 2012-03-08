@@ -4,11 +4,11 @@
 .row
 	.score-container.span1
 		.upvote
-			= link_to "upvote", upvote_quote_path
+			= link_to image_tag("upvote-inactive.png"), upvote_quote_path, method: 'POST'
 		.score
 			= quote.score
 		.downvote
-			= link_to "downvote", downvote_quote_path
+			= link_to image_tag("downvote-inactive.png"), downvote_quote_path, method: 'POST'
 	.quote-container.span11
 		.quote-text
 			- quote.text.each_line do |line|
