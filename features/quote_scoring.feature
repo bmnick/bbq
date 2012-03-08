@@ -11,5 +11,5 @@ Feature: Quote Score Management
 			| Number	| 7 |
 		When I am on the quote page for quote 7
 		Then I should see "242"
-		And I should see "upvote"
-		And I should see "downvote"
+		And I should see a link to "upvote"
+		And I should see a link to "downvote"
