@@ -10,6 +10,17 @@ Feature: Quote Score Management
 			| Score 	| 242 |
 			| Number	| 7 |
 		When I am on the quote page for quote 7
-		Then I should see "242"
+		Then I should see a score of "242"
 		And I should see a link to "upvote"
 		And I should see a link to "downvote"
+
+	@wip
+	Scenario: Upvote should increase the score
+		Given the following quote exists:
+			| Text		| Ben: RUBY! |
+			| Score 	| 41 |
+			| Number 	| 89 |
+		When I am on the quote page for quote 89
+		And I follow the link for "upvote"
+		Then I should be on the quote page for quote 89
+		And I should see a score of "42"

@@ -10,3 +10,9 @@ Given /^the following quote exists:$/ do |table|
 
   q.save!
 end
+
+Then /^I should see a score of "([^"]*)"$/ do |score|
+  within '.score' do 
+  	page.should have_content(score)
+  end
+end
