@@ -1,5 +1,10 @@
 Bbq::Application.routes.draw do
-  resources :quotes
+  resources :quotes do
+    member do
+      post 'upvote'
+      post 'downvote'
+    end
+  end
 
   root to: 'welcome#index'
 
