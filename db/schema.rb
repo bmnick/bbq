@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120205045711) do
+ActiveRecord::Schema.define(:version => 20120216010520) do
 
   create_table "quotes", :force => true do |t|
     t.string   "text"
     t.string   "context"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "score"
   end
 
 end
