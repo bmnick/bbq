@@ -57,11 +57,25 @@ class QuotesController < ApplicationController
 				format.html { redirect_to quote_path(@quote)}
 				format.json { head :ok }
 			else
-				format.html { redirect_to quote_path(@quote), notice: ''}
+				format.html { redirect_to quote_path(@quote), notice: 'Failed to upvote this quote'}
 				format.json { render json: @quote.errors, status: :unprocessable_entity }
 			end
 		end
 	end
+
+	def downvote
+		@quote.score -= 1
+
+		respond_to do |format|
+			if @quote.save
+				format.html { redirect_to quote_path(@quote)}
+				format.json { head :ok }
+			else
+				format.html { redirect_to quote_path(@quote), notice: 'Failed to downvote this quote'}
+				format.json { render json: @quote.errors, status: :unprocessable_entity }
+			end
+		end
+	end		
 
 	private
 	def find_quotes

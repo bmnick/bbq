@@ -24,7 +24,6 @@ Feature: Quote Score Management
 		Then I should be on the quote page for quote 89
 		And I should see a score of "42"
 
-	@wip
 	Scenario: Downvote should decrease the score
 		Given the following quote exists:
 			| Text		| Ben: Apple! |
