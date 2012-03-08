@@ -51,5 +51,6 @@ end
 
 group :test do
 	gem 'cucumber-rails'
+  gem 'launchy'
 	gem 'database_cleaner'
 end
