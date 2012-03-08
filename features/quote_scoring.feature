@@ -14,7 +14,6 @@ Feature: Quote Score Management
 		And I should see a link to "upvote"
 		And I should see a link to "downvote"
 
-	@wip
 	Scenario: Upvote should increase the score
 		Given the following quote exists:
 			| Text		| Ben: RUBY! |

@@ -49,6 +49,20 @@ class QuotesController < ApplicationController
 		end
 	end
 
+	def upvote
+		@quote.score += 1
+
+		respond_to do |format|
+			if @quote.save
+				format.html { redirect_to quote_path(@quote)}
+				format.json { head :ok }
+			else
+				format.html { redirect_to quote_path(@quote), notice: ''}
+				format.json { render json: @quote.errors, status: :unprocessable_entity }
+			end
+		end
+	end
+
 	private
 	def find_quotes
 		@quotes = Quote.all
