@@ -4,16 +4,16 @@
 .row
 	.score-container.span1
 		.upvote
-			= link_to image_tag("upvote-inactive.png", alt: 'upvote'), upvote_quote_path, method: 'POST'
+			= link_to image_tag("upvote-inactive.png", alt: 'upvote'), upvote_quote_path, method: :post
 		.score
 			= quote.score
 		.downvote
-			= link_to image_tag("downvote-inactive.png", alt: 'downvote'), downvote_quote_path, method: 'POST'
+			= link_to image_tag("downvote-inactive.png", alt: 'downvote'), downvote_quote_path, method: :post
 	.quote-container.span11
 		.quote-text
 			- quote.text.each_line do |line|
 				= line
 				%br
-		- if quote.context.length > 0
+		- if quote.context && quote.context.length > 0
 			.quote-context
 				= quote.context
