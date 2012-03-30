@@ -1,4 +1,7 @@
 %h1 
   = "Search Results for #{@search_string}"
 
-= render :partial => "quote", :collection => @quotes
+- if @quotes.empty?
+  Sorry, no search results...
+- else
+  = render :partial => "quote", :collection => @quotes
