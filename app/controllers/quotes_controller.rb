@@ -18,6 +18,10 @@ class QuotesController < ApplicationController
 	def bottom
 		@quotes = Quote.bottom
 	end
+	
+	def random
+		@quotes = Quote.random
+	end
 
 	def new
 	end

@@ -9,6 +9,7 @@ Bbq::Application.routes.draw do
       get 'recent'
       get 'top'
       get 'bottom'
+      get 'random'
     end
   end
 

@@ -26,3 +26,8 @@ Feature: Quote Score Management
     Given I am on the home page
     When I follow the link for "Bottom"
     Then I should be on the bottom quotes page
+    
+  Scenario: Go to the random quotes page
+    Given I am on the home page
+    When I follow the link for "Random"
+    Then I should be on the random quotes page

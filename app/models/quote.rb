@@ -11,5 +11,9 @@ class Quote < ActiveRecord::Base
     def bottom num=20
       order(:score).take(num)
     end
+    
+    def random num=20
+      order("random()").take(num)
+    end
   end
 end
