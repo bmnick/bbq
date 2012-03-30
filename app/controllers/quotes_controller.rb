@@ -14,6 +14,10 @@ class QuotesController < ApplicationController
 	def top
 		@quotes = Quote.top
 	end
+	
+	def bottom
+		@quotes = Quote.bottom
+	end
 
 	def new
 	end

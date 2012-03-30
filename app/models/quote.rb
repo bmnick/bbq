@@ -7,5 +7,9 @@ class Quote < ActiveRecord::Base
     def top num = 20
       order("score DESC").take(num)
     end
+    
+    def bottom num=20
+      order(:score).take(num)
+    end
   end
 end
