@@ -16,3 +16,8 @@ Then /^I should see a score of "([^"]*)"$/ do |score|
   	page.should have_content(score)
   end
 end
+
+When /^I search for "([^"]*)"$/ do |search|
+  fill_in("search", with: search)
+  find_field('search').native.send_key(:enter)
+end

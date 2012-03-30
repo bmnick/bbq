@@ -35,3 +35,13 @@ Feature: Quote Score Management
     Given I am on the home page
     When I follow the link for "Random"
     Then I should be on the random quotes page
+  
+  @wip
+  Scenario: Search for text works
+    Given the following quote exists:
+      | Text 		| Chowder: Ah Tits! |
+      | Score 	| 242 |
+      | Number	| 839 |
+    When I search for "tits"
+    Then I should be on the search results page
+    And I should see "Chowder: Ah Tits!"
