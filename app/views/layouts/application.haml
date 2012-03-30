@@ -13,7 +13,15 @@
 					.nav-collapse
 						%ul.nav
 							%li
-								= link_to "Recent", quotes_path
+								= link_to "Recent", recent_quotes_path
+							%li
+								= link_to "Top", top_quotes_path
+							%li
+								= link_to "Bottom", bottom_quotes_path
+							%li
+								= link_to "Browse", quotes_path
+							%li
+								= link_to "Random", random_quotes_path
 							%li
 								= link_to "Submit Quote", new_quote_path
 		.container
