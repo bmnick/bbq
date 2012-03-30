@@ -7,6 +7,7 @@ Bbq::Application.routes.draw do
     
     collection do
       get 'recent'
+      get 'top'
     end
   end
 

@@ -10,6 +10,10 @@ class QuotesController < ApplicationController
 	def recent
 		@quotes = Quote.recent
 	end
+	
+	def top
+		@quotes = Quote.top
+	end
 
 	def new
 	end

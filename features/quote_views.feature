@@ -16,3 +16,8 @@ Feature: Quote Score Management
     Given I am on the home page
     When I follow the link for "Recent"
     Then I should be on the recent quotes page
+  
+  Scenario: Go to the top quotes page
+    Given I am on the home page
+    When I follow the link for "Top"
+    Then I should be on the top quotes page
