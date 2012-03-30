@@ -15,5 +15,13 @@ class Quote < ActiveRecord::Base
     def random num=20
       order("random()").take(num)
     end
+    
+    def search query
+      if query
+        Quote.where "text like ?", "%#{query}%"
+      else
+        Quote.all
+      end
+    end
   end
 end
