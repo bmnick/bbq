@@ -22,6 +22,11 @@ class QuotesController < ApplicationController
 	def random
 		@quotes = Quote.random
 	end
+	
+	def search
+		@search_string = params[:quote][:text]
+		@quotes = Quote.search(@search_string)
+	end
 
 	def new
 	end

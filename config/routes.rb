@@ -10,6 +10,7 @@ Bbq::Application.routes.draw do
       get 'top'
       get 'bottom'
       get 'random'
+      get 'search'
     end
   end
 
