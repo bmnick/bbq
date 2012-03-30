@@ -24,6 +24,9 @@
 								= link_to "Random", random_quotes_path
 							%li
 								= link_to "Submit Quote", new_quote_path
+						= form_tag search_quotes_path, method: :get, class: ["navbar-search", "pull-left"], id: "search-form" do
+							= search_field :quote, :text, id: "search", class: ["search-query", "span2"]
+							= submit_tag "search", class: "hidden", id: "search-submit"
 		.container
 			- if flash[:error]
 				.alert.alert-error
