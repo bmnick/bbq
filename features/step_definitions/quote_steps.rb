@@ -18,6 +18,6 @@ Then /^I should see a score of "([^"]*)"$/ do |score|
 end
 
 When /^I search for "([^"]*)"$/ do |search|
-  fill_in("search", with: search)
-  find_field('search').native.send_key(:enter)
+  find(:css, "#search").set(search)
+  click_button('search-submit')
 end

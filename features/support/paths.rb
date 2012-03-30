@@ -22,6 +22,9 @@ module NavigationHelpers
 
     when /^the edit page for quote ([0-9]+)$/
       edit_quote_path($1)
+      
+    when /^the search results page$/
+      search_quotes_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
