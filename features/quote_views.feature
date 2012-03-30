@@ -3,7 +3,6 @@ Feature: Quote Score Management
   As a user of BBQ
   I want to view quotes in various ways
   
-  @wip
   Scenario: See all links on the home page
     When I am on the home page
     Then I should see a link to "Recent"
@@ -26,6 +25,11 @@ Feature: Quote Score Management
     Given I am on the home page
     When I follow the link for "Bottom"
     Then I should be on the bottom quotes page
+  
+  Scenario: Go to the browse quotes page
+    Given I am on the home page
+    When I follow the link for "Browse"
+    Then I should be on the quotes page
     
   Scenario: Go to the random quotes page
     Given I am on the home page
