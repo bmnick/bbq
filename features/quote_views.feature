@@ -11,3 +11,8 @@ Feature: Quote Score Management
     And I should see a link to "Bottom"
     And I should see a link to "Browse"
     And I should see a link to "Random"
+
+  Scenario: Go to the recent quotes page
+    Given I am on the home page
+    When I follow the link for "Recent"
+    Then I should be on the recent quotes page
