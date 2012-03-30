@@ -15,7 +15,7 @@ module NavigationHelpers
       new_quote_path
 
     when /^the recent quotes page$/
-      quotes_path
+      recent_quotes_path
 
     when /^the quote page for quote ([0-9]+)$/
       quote_path($1)

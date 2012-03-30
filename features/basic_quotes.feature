@@ -11,7 +11,7 @@ Feature: Quote CRUD management
 			| Context 	| SSE server |
 		And I press "Submit Quote"
 		Then I should see "Quote submitted"
-		And I should be on the recent quotes page
+		And I should be on the quotes page
 
 	Scenario: See Recent quotes
 		Given the following quote exists:
@@ -69,5 +69,5 @@ Feature: Quote CRUD management
 			| Number	| 37 |
 		When I am on the quote page for quote 37
 		And I follow the link for "Delete quote"
-		Then I should be on the recent quotes page
+		Then I should be on the quotes page
 		And I should not see "Kaity: Hi!"

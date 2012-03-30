@@ -6,6 +6,10 @@ class QuotesController < ApplicationController
 
 	def index
 	end
+	
+	def recent
+		@quotes = Quote.recent
+	end
 
 	def new
 	end

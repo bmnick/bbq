@@ -4,6 +4,10 @@ Bbq::Application.routes.draw do
       post 'upvote'
       post 'downvote'
     end
+    
+    collection do
+      get 'recent'
+    end
   end
 
   root to: 'welcome#index'

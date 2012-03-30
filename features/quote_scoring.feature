@@ -31,5 +31,5 @@ Feature: Quote Score Management
 			| Number 	| 90 |
 		When I am on the quote page for quote 90
 		And I follow the link for "downvote"
-		Then I should be on the quote page for quote 89
+		Then I should be on the quote page for quote 90
 		And I should see a score of "42"
