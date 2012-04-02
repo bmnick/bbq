@@ -13,6 +13,8 @@ Bbq::Application.routes.draw do
       get 'search'
     end
   end
+  
+  resources :tags
 
   root to: 'welcome#index'
 

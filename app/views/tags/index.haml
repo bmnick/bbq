@@ -1,0 +1,5 @@
+%h1 Tags
+
+= @tags.map(&:name).join(" ")
+
+= render :partial => "tag", :collection => @tags

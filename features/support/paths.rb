@@ -25,6 +25,9 @@ module NavigationHelpers
       
     when /^the search results page$/
       search_quotes_path
+    
+    when /^the tags page$/
+      tags_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
