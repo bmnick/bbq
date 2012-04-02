@@ -6,3 +6,7 @@ Given /^the following tag exists:$/ do |table|
   
   t.save!
 end
+
+When /^I add the tag "([^\"]*)"$/ do |tag|
+  select(tag, :from => "Tags")
+end
