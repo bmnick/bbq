@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330203337) do
+ActiveRecord::Schema.define(:version => 20120402182517) do
 
   create_table "quotes", :force => true do |t|
     t.string   "text"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(:version => 20120330203337) do
     t.datetime "updated_at", :null => false
     t.integer  "score"
   end
+
+  create_table "quotes_tags", :id => false, :force => true do |t|
+    t.integer "tag_id"
+    t.integer "quote_id"
+  end
+
+  add_index "quotes_tags", ["quote_id", "tag_id"], :name => "index_quotes_tags_on_quote_id_and_tag_id"
+  add_index "quotes_tags", ["tag_id", "quote_id"], :name => "index_quotes_tags_on_tag_id_and_quote_id"
 
   create_table "tags", :force => true do |t|
     t.string   "name"
