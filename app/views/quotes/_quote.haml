@@ -17,3 +17,6 @@
 		- if quote.context && quote.context.length > 0
 			.quote-context
 				= quote.context
+		- unless quote.tags.empty?
+			.quote-tags
+				= quote.tags.map(&:name).join(" ")
