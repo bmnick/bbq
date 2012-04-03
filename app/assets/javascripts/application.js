@@ -12,4 +12,29 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery.tokeninput
+$(function () {
+  $('#quote_tags').tokenInput('/tags.json', { 
+    crossDomain: false,
+    prePopulate: $('#quote_tags').data('pre'),
+    theme: 'bootstrap',
+    onResult: function(items) {
+      items.push({
+        id: -1, 
+        name: "create..."
+      });
+      
+      return items;
+    },
+    beforeAdd: function(item) {
+      if (item.id === -1) {
+        console.log($(this).val());
+        // Create a new tag with name: $(this).val()
+        
+        return false;
+      } else {
+        return true;
+      }
+    }
+  });
+});
