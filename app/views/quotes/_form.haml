@@ -3,7 +3,7 @@
 	
 	= f.input :text, as: :text, id: 'quote', input_html: { class: 'span12', rows: 5 }
 	= f.input :context, input_html: { class: 'span12' }
-	= f.input :tags, id: 'tags', input_html: {class: 'span12'}, "data-pre" => Tag.all.map(&:attributes).to_json
+	= f.input :tag_tokens, id: 'quote_tags', input_html: {class: 'span12'}, "data-pre" => quote.tags.map(&:attributes).to_json, label: 'Tags'
 
 	.form-actions
 		= f.button :submit, action, class: 'btn-primary'
