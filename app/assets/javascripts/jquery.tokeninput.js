@@ -537,30 +537,32 @@ $.TokenList = function (input, url_or_data, settings) {
     function add_token (item) {
         var callback = settings.onAdd;
 
-        // See if the token already exists and select it if we don't want duplicates
-        if(token_count > 0 && settings.preventDuplicates) {
-            var found_existing_token = null;
-            token_list.children().each(function () {
-                var existing_token = $(this);
-                var existing_data = $.data(existing_token.get(0), "tokeninput");
-                if(existing_data && existing_data.id === item.id) {
-                    found_existing_token = existing_token;
-                    return false;
+        if (item) {
+            // See if the token already exists and select it if we don't want duplicates
+            if(token_count > 0 && settings.preventDuplicates) {
+                var found_existing_token = null;
+                token_list.children().each(function () {
+                    var existing_token = $(this);
+                    var existing_data = $.data(existing_token.get(0), "tokeninput");
+                    if(existing_data && existing_data.id === item.id) {
+                        found_existing_token = existing_token;
+                        return false;
+                    }
+                });
+    
+                if(found_existing_token) {
+                    select_token(found_existing_token);
+                    input_token.insertAfter(found_existing_token);
+                    focus_with_timeout(add);
+                    return;
                 }
-            });
-
-            if(found_existing_token) {
-                select_token(found_existing_token);
-                input_token.insertAfter(found_existing_token);
-                focus_with_timeout(add);
-                return;
             }
-        }
-
-        // Insert the new tokens
-        if(settings.tokenLimit == null || token_count < settings.tokenLimit) {
-            insert_token(item);
-            checkTokenLimit();
+    
+            // Insert the new tokens
+            if(settings.tokenLimit == null || token_count < settings.tokenLimit) {
+                insert_token(item);
+                checkTokenLimit();
+            }
         }
 
         // Clear input box
@@ -570,7 +572,7 @@ $.TokenList = function (input, url_or_data, settings) {
         hide_dropdown();
 
         // Execute the onAdd callback if defined
-        if($.isFunction(callback)) {
+        if($.isFunction(callback) && item) {
             callback.call(hidden_input,item);
         }
     }
@@ -730,6 +732,7 @@ $.TokenList = function (input, url_or_data, settings) {
                     
                     if ($.isFunction(pre_callback)) {
                         if (!pre_callback.call(input_box, item)) {
+                            add_token(null);
                             hidden_input.change();
                             return false;
                         }

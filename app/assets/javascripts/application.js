@@ -14,7 +14,16 @@
 //= require jquery_ujs
 //= require jquery.tokeninput
 $(function () {
-  $('#quote_tags').tokenInput('/tags.json', { 
+  // Setup CSRF token for ajax requests
+  $.ajaxSetup({
+    headers: {
+     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') 
+    },
+    dataType: 'json'
+  });
+  
+  // Setup the tokenInput
+  $('#quote_tag_tokens').tokenInput('/tags.json', { 
     crossDomain: false,
     prePopulate: $('#quote_tags').data('pre'),
     theme: 'bootstrap',
@@ -29,7 +38,22 @@ $(function () {
     beforeAdd: function(item) {
       if (item.id === -1) {
         console.log($(this).val());
+        
         // Create a new tag with name: $(this).val()
+        $.ajax('/tags', {
+          type: 'POST',
+          success: function(data) {
+            $("#quote_tags").tokenInput("add", {id: data.id, name: data.name});
+          },
+          error: function(jqXHR, textStatus, errorThrown){
+            console.log("Error creating new tag from tokenInput");
+          },
+          data: {
+            tag: {
+              name: $(this).val()
+            }
+          }
+        });
         
         return false;
       } else {
