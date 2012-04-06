@@ -29,7 +29,6 @@ Feature: Quote Tagging Support
     Then I should be on the tags page
     And I should see "Something Something Something Dark Side"
     
-  @wip
   Scenario: Add a tag to a new quote
     Given the following tag exists:
       | Name | sleepy |
