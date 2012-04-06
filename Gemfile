@@ -44,6 +44,11 @@ gem 'simple_form'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+# Try out puma
+group :development do
+  gem 'puma'
+end
+
 # Set up testing stuff
 group :test, :development do
 	gem 'rspec-rails', '~> 2.6'
