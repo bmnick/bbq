@@ -50,7 +50,7 @@ class QuotesController < ApplicationController
 		respond_to do |format|
 			if @quote.save
 				format.html { redirect_to quotes_path, notice: 'Quote submitted' }
-				format.json { render json: @quote, status: created, location: @quote }
+				format.json { render json: @quote, status: :created, location: @quote }
 			else
 				format.html { render action: new }
 				format.json { render json: @quote.errors, status: :unprocessable_entity }
