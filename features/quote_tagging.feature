@@ -21,6 +21,14 @@ Feature: Quote Tagging Support
     Then I should see "out of context"
     And I should see "after 6pm"
     
+  Scenario: Create a new tag
+    Given I am on the new tag page
+    When I fill in the following:
+      | Name | Something Something Something Dark Side |
+    And I press "Create Tag"
+    Then I should be on the tags page
+    And I should see "Something Something Something Dark Side"
+    
   @wip
   Scenario: Add a tag to a new quote
     Given the following tag exists:
