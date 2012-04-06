@@ -26,4 +26,17 @@ class Quote < ActiveRecord::Base
   end
   
   has_and_belongs_to_many :tags
+  attr_accessible :text, :context, :score, :tag_tokens
+  
+  def tag_tokens
+    if self.tag_ids.length > 0
+      self.tag_ids.join(',')
+    else
+      '[]'
+    end
+  end
+  
+  def tag_tokens=(ids)
+    self.tag_ids = ids.split(',')
+  end
 end
