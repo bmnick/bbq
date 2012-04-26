@@ -3,6 +3,7 @@ Feature: Quote CRUD management
 	As a member of a real-life community
 	I want to be able to save those quotes
 
+	@javascript
 	Scenario: Create a quote
 		Given I am on the home page
 		When I follow the link for "Submit Quote"
@@ -47,6 +48,7 @@ Feature: Quote CRUD management
 		And I follow the link for "Edit"
 		Then I should be on the edit page for quote 47
 
+	@javascript
 	Scenario: Edit a quote
 		Given the following quote exists:
 			| Text		| Ben: I want OMG WTF and BBQ running! |
