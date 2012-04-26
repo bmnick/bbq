@@ -21,8 +21,8 @@ describe "Quote scopes" do
   end
   
   it "Has the most recent in order" do
-    Quote.recent(5).should == Quote.order(:created_at).take(5)
-    Quote.recent(5).should == (Quote.all.sort_by &:created_at).first(5)
+    Quote.recent(5).should == Quote.order(:created_at).reverse.take(5)
+    Quote.recent(5).should == (Quote.all.sort_by &:created_at).reverse.first(5)
   end
   
   it "Has the most recent quote first" do

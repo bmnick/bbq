@@ -1,7 +1,7 @@
 class Quote < ActiveRecord::Base
   class << self
     def recent num = 20
-      order(:created_at).take(num)
+      order("created_at DESC").take(num)
     end
     
     def top num = 20
