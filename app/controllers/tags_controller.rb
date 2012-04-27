@@ -2,6 +2,8 @@ class TagsController < ApplicationController
   before_filter :find_tags, only: [:index]
   before_filter :find_tag, except: [:index]
   
+  helper :tag_cloud
+  
   def index
     respond_to do |format|
       format.html 
