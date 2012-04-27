@@ -1,10 +1,6 @@
 module TagCloudHelper
   
   def tag_cloud_for collection, sort_method, display_property
-    pp collection
-    pp sort_method
-    pp display_property
-    
     sorted = collection.sort_by(&sort_method).reverse
     
     scores = score_array sorted
@@ -15,7 +11,6 @@ module TagCloudHelper
   end
   
   def tag_output_for tag, score, display_property
-    puts "Sending #{display_property} to type #{tag.class}: #{tag}"
     link_to tag.send(display_property), tag, class: "tag-cloud-#{score+1}"
   end
   

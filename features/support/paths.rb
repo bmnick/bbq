@@ -28,6 +28,9 @@ module NavigationHelpers
     
     when /^the tags page$/
       tags_path
+      
+    when /^the tag page for "([a-zA-z0-9]+)"$/
+      tag_path Tag.find_by_name($1)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

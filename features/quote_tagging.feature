@@ -40,4 +40,15 @@ Feature: Quote Tagging Support
     And I press "Submit Quote"
     Then I should be on the quotes page
     And I should see "sleepy"
+    
+  Scenario: View quotes for a tag
+    Given the following tag exists:
+      | Name | bros |
+    And the following quote exists:
+      | Text | Doug: hey bro! |
+      | Tags | bros |
+    When I am on the tags page
+    And I follow the link for "bros"
+    Then I should be on the tag page for "bros"
+    And I should see "Doug: hey bro!"
   

@@ -7,6 +7,15 @@ Given /^the following quote exists:$/ do |table|
   q.context = table.rows_hash["Context"]
   q.id = table.rows_hash['Number'].to_i if table.rows_hash.key?('Number')
   q.score = table.rows_hash['Score'].to_i if table.rows_hash.key?('Score')
+  
+  if table.rows_hash.key?('Tags')
+    tags = table.rows_hash['Tags'].split(', ') 
+  
+    tags.each do |tag_name|
+      tag = Tag.find_by_name(tag_name)
+      q.tags << tag
+    end
+  end
 
   q.save!
 end
