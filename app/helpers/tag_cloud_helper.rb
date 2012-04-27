@@ -5,7 +5,7 @@ module TagCloudHelper
     pp sort_method
     pp display_property
     
-    sorted = collection.sort_by &sort_method
+    sorted = collection.sort_by(&sort_method).reverse
     
     scores = score_array sorted
     
