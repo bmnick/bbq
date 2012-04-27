@@ -4,6 +4,8 @@ class TagsController < ApplicationController
   
   helper :tag_cloud
   
+  respond_to :html, :json
+  
   def index
     respond_to do |format|
       format.html 
@@ -24,6 +26,10 @@ class TagsController < ApplicationController
         format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def show
+    respond_with @tag
   end
   
   protected
